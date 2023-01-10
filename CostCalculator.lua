@@ -139,14 +139,14 @@ function DoExport(CarCalculator, CarFile)
 	local trimResults = CarCalculator.CarInfo.TrimInfo.Results
 	local engineResults = CarCalculator.CarInfo.TrimInfo.EngineInfo.ModelInfo.Results
 
-	trimData = ItemData(trimResults.EngineeringTime, Modifiers.TrimEngineeringTime, trimResults.ManHours, trimResults.EngineeringCosts, 
+	local trimData = ItemData(trimResults.EngineeringTime, Modifiers.TrimEngineeringTime, trimResults.ManHours, trimResults.EngineeringCosts, 
 							trimResults.MaterialCost, trimResults.ToolingCosts)
 
-	engineData = ItemData(engineResults.EngineeringTime, Modifiers.EngineEngineeringTime, engineResults.ManHours, engineResults.EngineeringCost, 
+	local engineData = ItemData(engineResults.EngineeringTime, Modifiers.EngineEngineeringTime, engineResults.ManHours, engineResults.EngineeringCost, 
 							engineResults.MaterialCost, engineResults.ToolingCosts)
 
-	trimProjectResults = ProcessProject(trimData, CarFactorySettings, CarProjectSettings)
-	engineProjectResults = ProcessProject(engineData, EngineFactorySettings, EngineProjectSettings)
+	local trimProjectResults = ProcessProject(trimData, CarFactorySettings, CarProjectSettings)
+	local engineProjectResults = ProcessProject(engineData, EngineFactorySettings, EngineProjectSettings)
 	
 	local totalCostPerCar = trimProjectResults.Results.CostPerCar + engineProjectResults.Results.CostPerCar
 	
